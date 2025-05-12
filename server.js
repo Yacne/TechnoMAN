@@ -8,6 +8,7 @@ let clients = [];
 
 wss.on("connection", (ws) => {
   clients.push(ws);
+
   ws.on("message", (message) => {
     clients.forEach(client => {
       if (client !== ws && client.readyState === WebSocket.OPEN) {
@@ -15,11 +16,13 @@ wss.on("connection", (ws) => {
       }
     });
   });
+
   ws.on("close", () => {
     clients = clients.filter(client => client !== ws);
   });
 });
 
+// هذا السطر هو المهم:
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`WebSocket server is running on port ${PORT}`);
