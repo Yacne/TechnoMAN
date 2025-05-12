@@ -1,11 +1,12 @@
 {
   "name": "technochat-server",
   "version": "1.0.0",
+  "description": "WebSocket server for TechnoMAN chat",
   "main": "server.js",
-  "dependencies": {
-    "ws": "^8.13.0"
-  },
   "scripts": {
     "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.13.0"
   }
 }
